@@ -1,0 +1,36 @@
+@media only screen and (max-width: 600px) {
+  .navigation{
+    top: 5vh;
+    a{
+      font-size: 16px;
+      margin: 0 10px;
+    }
+  }
+
+  .content{
+    p{
+      font-size: 15px;
+    }
+  }
+
+
+  @keyframes colorAni1 {
+    0%   {width: calc(100vw / 3); height: 50vh;}
+    100%  {width: 5vw; height: 100vh;}
+  }
+
+  @keyframes colorAni2 {
+    0%   {height: 50vh;  width: calc(100vw / 3); left: calc(100vw / 3);}
+    100%  {height: 5vw; width: 100vw; left: 0;}
+  }
+
+  @keyframes colorAni3 {
+    0%   {height: 50vh; width: calc((100vw / 3) * 2)}
+    100%  {height: 5vw; width: 100vw;}
+  }
+
+  @keyframes colorAni4 {
+    0%   { width: calc(100vw / 3);}
+    100%  {width: 5vw;}
+  }
+}

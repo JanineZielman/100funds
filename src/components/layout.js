@@ -22,6 +22,9 @@ export default function Layout({children, navigation, page}) {
           )
         })}
       </div>
+      <Link className="logo" href="/">
+        
+      </Link>
       {children}
     </div>
   )
