@@ -38,7 +38,7 @@ export type NavigationDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = RichTextSlice;
+type PageDocumentDataSlicesSlice = ImageTextSlice | RichTextSlice;
 
 /**
  * Content for Page documents
@@ -113,6 +113,88 @@ export type PageDocument<Lang extends string = string> =
 export type AllDocumentTypes = NavigationDocument | PageDocument;
 
 /**
+ * Item in *ImageText → Default → Primary → ImageText*
+ */
+export interface ImageTextSliceDefaultPrimaryImagetextItem {
+  /**
+   * Image field in *ImageText → Default → Primary → ImageText*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_text.default.primary.imagetext[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Text field in *ImageText → Default → Primary → ImageText*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_text.default.primary.imagetext[].text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *ImageText → Default → Primary*
+ */
+export interface ImageTextSliceDefaultPrimary {
+  /**
+   * Title field in *ImageText → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_text.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * ImageText field in *ImageText → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_text.default.primary.imagetext[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  imagetext: prismic.GroupField<
+    Simplify<ImageTextSliceDefaultPrimaryImagetextItem>
+  >;
+}
+
+/**
+ * Default variation for ImageText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageTextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageTextSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImageText*
+ */
+type ImageTextSliceVariation = ImageTextSliceDefault;
+
+/**
+ * ImageText Shared Slice
+ *
+ * - **API ID**: `image_text`
+ * - **Description**: ImageText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageTextSlice = prismic.SharedSlice<
+  "image_text",
+  ImageTextSliceVariation
+>;
+
+/**
  * Primary content in *RichText → Default → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
@@ -184,6 +266,11 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      ImageTextSlice,
+      ImageTextSliceDefaultPrimaryImagetextItem,
+      ImageTextSliceDefaultPrimary,
+      ImageTextSliceVariation,
+      ImageTextSliceDefault,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
