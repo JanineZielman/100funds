@@ -2,18 +2,21 @@
 
 //colors
 
-$red: #74070E;
+$blue: #191A34;
+$lblue: #EAEBFF;
 $yellow: #f2ffa8;
+$lyellow: #E7E8DF;
 $purple: #B0A6DF;
+$lpurple: #F1EDFF;
 $green: #5b7915;
-$white: #EFE6DD;
+$lgreen: #EFF8D9;
 
 body{
-  background-color: $white;
   margin: 0;
   padding: 0;
   font-family: poppins;
   color: black;
+  background-color: $lblue;
 }
 
 .colors{
@@ -25,7 +28,7 @@ body{
 
 .colors{
   .color0{
-    background-color: $red;
+    background-color: $blue;
     width: calc(100vw / 3);
     height: 50vh;
     animation: colorAni1 1s ease 1s 1 forwards;
@@ -81,12 +84,13 @@ body{
 }
 
 .join{
+  background-color: $lpurple;
   .colors{
     .color0{
       background-color: $purple;
     }
     .color1{
-      background-color: $red;
+      background-color: $blue;
     }
     .color2{
       background-color: $green;
@@ -101,6 +105,7 @@ body{
 }
 
 .about{
+  background-color: $lgreen;
   .colors{
     .color0{
       background-color: $green;
@@ -112,7 +117,7 @@ body{
       background-color: $yellow;
     }
     .color3{
-      background-color: $red;
+      background-color: $blue;
     }
   }
   .logo{
@@ -122,6 +127,7 @@ body{
 
 
 .contact{
+  background-color: $lyellow;
   .colors{
     .color0{
       background-color: $yellow;
@@ -130,7 +136,7 @@ body{
       background-color: $green;
     }
     .color2{
-      background-color: $red;
+      background-color: $blue;
     }
     .color3{
       background-color: $purple;
@@ -147,13 +153,12 @@ body{
   max-width: 90vw;
   max-height: 90vw;
   mask-image: url(/logo.gif);
-  background-color: $red;
+  background-color: $blue;
   mask-size: contain;
   top: 52%;
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: -1;
 }
 
 a{
@@ -168,6 +173,7 @@ a{
   justify-content: center;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1;
   a{
     margin: 0 24px;
     font-size: 20px;
@@ -177,12 +183,47 @@ a{
 
 
 .content{
-  margin-top: 100vh;
   min-height: 100vh;
   padding: 0 8vw;
+  padding-top: 100vh;
   p{
     font-family: merriweather;
     line-height: 1.8;
     font-size: 17px;
+  }
+  ul{
+    padding-inline-start: 60px;
+  }
+  li{
+    font-family: merriweather;
+    line-height: 1.8;
+    font-size: 17px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  ul li{
+    list-style-type: none;
+    &:before{
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: black;
+      margin-left: -50px;
+    }
+  }
+  h2{
+    &:before{
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 5px solid black;
+      margin-left: -50px;
+    }
   }
 }

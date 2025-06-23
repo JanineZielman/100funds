@@ -9,7 +9,7 @@ import Layout from "../components/layout"
 
 export default async function Home() {
   const client = createClient();
-  const home = await client.getByUID("page", "home");
+  const home = await client.getByUID("page", "why");
   const navigation = await client.getAllByType('navigation')
 
   // <SliceZone> renders the page's slices.
@@ -24,7 +24,7 @@ export default async function Home() {
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
-  const home = await client.getByUID("page", "home");
+  const home = await client.getByUID("page", "why");
 
   return {
     title: asText(home.data.title),
