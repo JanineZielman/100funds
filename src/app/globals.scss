@@ -147,6 +147,7 @@ body{
   .logo{
     background-color: $yellow;
     position: relative!important;
+    z-index: 0;
     display: block;
     transform: none;
     left: auto;

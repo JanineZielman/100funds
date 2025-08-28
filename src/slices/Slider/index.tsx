@@ -16,24 +16,28 @@ export type SliderProps = SliceComponentProps<Content.SliderSlice>;
 const Slider: FC<SliderProps> = ({ slice }) => {
   // console.log(slice.primary.slides_to_show)
   // Slick settings
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: slice.primary.slides_to_show ? slice.primary.slides_to_show : 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    arrows: true,
-    responsive: [
+ const settings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: Number(slice.primary.slides_to_show) || 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 4000,
+  arrows: true,
+  responsive: [
     {
       breakpoint: 600,
       settings: {
-        slidesToShow: 1
-      }
-    }
-  ]
-  };
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        infinite: true,
+      },
+    },
+  ],
+};
+
 
   return (
     <section
