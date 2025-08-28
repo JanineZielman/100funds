@@ -3,12 +3,7 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"title": {
-				"__TYPE__": "FieldContent",
-				"value": "instant",
-				"type": "Text"
-			},
-			"imagetext": {
+			"slides": {
 				"__TYPE__": "GroupContentType",
 				"value": [
 					{
@@ -19,13 +14,13 @@
 								{
 									"origin": {
 										"id": "main",
-										"url": "https://images.unsplash.com/photo-1600861194802-a2b11076bc51",
-										"width": 2545,
-										"height": 2545
+										"url": "https://images.unsplash.com/photo-1587905069134-008460d7a636",
+										"width": 3935,
+										"height": 5894
 									},
-									"url": "https://images.unsplash.com/photo-1600861194802-a2b11076bc51?rect=0%2C0%2C2545%2C2545&w=1080&h=1080",
-									"width": 1080,
-									"height": 1080,
+									"url": "https://images.unsplash.com/photo-1587905069134-008460d7a636?rect=0%2C0%2C3935%2C5894&w=1920&h=2876",
+									"width": 1920,
+									"height": 2876,
 									"edit": {
 										"zoom": 1,
 										"crop": {
@@ -34,21 +29,21 @@
 										},
 										"background": "transparent"
 									},
-									"alt": "solid",
+									"alt": "atom",
 									"credits": null,
 									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							],
 							[
-								"text",
+								"caption",
 								{
 									"__TYPE__": "StructuredTextContent",
 									"value": [
 										{
 											"type": "paragraph",
 											"content": {
-												"text": "Qui labore commodo nostrud anim anim occaecat ex incididunt amet. Sint mollit do commodo aliqua culpa in."
+												"text": "Ut ad exercitation consectetur anim minim labore aliqua. Qui dolor eu cillum pariatur et. Ut labore velit nisi ad deserunt aute ad ad cillum qui nulla laboris ut."
 											}
 										}
 									]
@@ -57,6 +52,11 @@
 						]
 					}
 				]
+			},
+			"slides_to_show": {
+				"__TYPE__": "FieldContent",
+				"value": "4",
+				"type": "Number"
 			}
 		},
 		"items": []

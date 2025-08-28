@@ -3,7 +3,7 @@
 import Link from "next/link";
 
 export default function Layout({children, navigation, page}) {
-  console.log(navigation)
+  console.log(page)
   return(
     <div className={page}>
       <div className="colors">
@@ -14,6 +14,9 @@ export default function Layout({children, navigation, page}) {
         })}
       </div>
       <div className="navigation">
+        <Link className="small-logo" href="/">
+          <img src="/logo.svg"/>
+        </Link>
         {navigation.map((item, i) =>{
           return(
             <Link className={`nav-item`} key={`nav${i}`} href={`/${item.uid}`}>
@@ -22,9 +25,9 @@ export default function Layout({children, navigation, page}) {
           )
         })}
       </div>
-      <Link className="logo" href="/">
-        
-      </Link>
+      {(page == 'contact' || page == 'home') &&
+        <Link className="logo" href="/"></Link>
+      }
       {children}
     </div>
   )

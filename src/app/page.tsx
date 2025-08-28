@@ -6,10 +6,11 @@ import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import Layout from "../components/layout"
+import Link from "next/link";
 
 export default async function Home() {
   const client = createClient();
-  const home = await client.getByUID("page", "why");
+  const home = await client.getByUID("page", "home");
   const navigation = await client.getAllByType('navigation')
 
   // <SliceZone> renders the page's slices.
@@ -24,7 +25,7 @@ export default async function Home() {
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
-  const home = await client.getByUID("page", "why");
+  const home = await client.getByUID("page", "home");
 
   return {
     title: asText(home.data.title),

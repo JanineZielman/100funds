@@ -17,6 +17,7 @@ body{
   font-family: poppins;
   color: black;
   background-color: $lblue;
+  overflow-x: hidden;
 }
 
 .colors{
@@ -128,6 +129,8 @@ body{
 
 .contact{
   background-color: $lyellow;
+  margin-top: -30px;
+  min-height: 100vh;
   .colors{
     .color0{
       background-color: $yellow;
@@ -144,12 +147,22 @@ body{
   }
   .logo{
     background-color: $yellow;
+    position: relative;
+    display: block;
+    transform: none;
+    left: auto;
+    margin: auto;
+    margin-bottom: -100px;
+    margin-top: 48px;
+  }
+  .content{
+    padding-top: 0;
   }
 }
 
 .logo{
-  width: 900px;
-  height: 900px;
+  width: 500px;
+  height: 500px;
   max-width: 90vw;
   max-height: 90vw;
   mask-image: url(/logo.gif);
@@ -183,9 +196,10 @@ a{
 
 
 .content{
-  min-height: 100vh;
-  padding: 0 8vw;
-  padding-top: 100vh;
+  // min-height: 100vh;
+  // padding: 0 8vw;
+  padding-top: 100px;
+  padding-bottom: 140px;
   p{
     font-family: merriweather;
     line-height: 1.8;
@@ -226,4 +240,15 @@ a{
       margin-left: -50px;
     }
   }
+}
+
+.slides-5{
+  width: 90vw!important;
+  margin-left: 5vw!important;
+  margin-right: 5vw!important;
+}
+
+.small-logo{
+  width: 40px;
+  height: 40px;
 }
