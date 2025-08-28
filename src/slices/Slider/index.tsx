@@ -39,8 +39,9 @@ const Slider: FC<SliderProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={`${styles.slider} slides-${slice.primary.slides_to_show}`}
+      className={`${styles.slider} slides-${slice.primary.slides_to_show} slides crop-${slice.primary.crop}`}
     >
+      {slice.primary.title &&<h2>{slice.primary.title}</h2>}
       <ReactSlick {...settings}>
         {slice.primary.slides.map((item, i) => (
           <div key={i} className={styles.slide}>

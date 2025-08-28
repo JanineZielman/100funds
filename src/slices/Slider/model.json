@@ -12,11 +12,27 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
         "slides_to_show": {
           "type": "Number",
           "config": {
             "label": "Slides to show",
             "placeholder": ""
+          }
+        },
+        "crop": {
+          "type": "Boolean",
+          "config": {
+            "label": "Crop",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": true
           }
         },
         "slides": {

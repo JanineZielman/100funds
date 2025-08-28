@@ -6,7 +6,6 @@ import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import Layout from "../components/layout"
-import Link from "next/link";
 
 export default async function Home() {
   const client = createClient();

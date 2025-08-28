@@ -239,6 +239,16 @@ export interface SliderSliceDefaultPrimarySlidesItem {
  */
 export interface SliderSliceDefaultPrimary {
   /**
+   * Title field in *Slider → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
    * Slides to show field in *Slider → Default → Primary*
    *
    * - **Field Type**: Number
@@ -247,6 +257,17 @@ export interface SliderSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#number
    */
   slides_to_show: prismic.NumberField;
+
+  /**
+   * Crop field in *Slider → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: slider.default.primary.crop
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  crop: prismic.BooleanField;
 
   /**
    * Slides field in *Slider → Default → Primary*

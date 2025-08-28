@@ -248,6 +248,19 @@ a{
   margin-right: 5vw!important;
 }
 
+.crop-false.slides{
+  // margin-top: 100px;
+  mix-blend-mode: multiply;
+  .slick-slide {
+    img{
+      object-fit: contain!important;
+      width: 60%;
+      margin: auto;
+      margin-bottom: 24px;
+    }
+  }
+}
+
 .small-logo{
   width: 40px;
   height: 40px;
