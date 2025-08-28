@@ -129,7 +129,6 @@ body{
 
 .contact{
   background-color: $lyellow;
-  margin-top: -30px;
   min-height: 100vh;
   .colors{
     .color0{
@@ -147,13 +146,17 @@ body{
   }
   .logo{
     background-color: $yellow;
-    position: relative;
+    position: relative!important;
     display: block;
     transform: none;
     left: auto;
     margin: auto;
-    margin-bottom: -140px;
-    margin-top: 80px;
+    margin-bottom: -100px;
+    margin-top: 0;
+    mask-position: bottom;
+    mask-size: contain;
+    height: 550px;
+    mask-repeat: no-repeat;
   }
   .content{
     padding-top: 0;
