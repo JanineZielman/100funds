@@ -23,7 +23,7 @@ body{
 .colors{
   .color{
     position: fixed;
-    z-index: 2;
+    z-index: 3;
   }
 }
 
@@ -152,8 +152,8 @@ body{
     transform: none;
     left: auto;
     margin: auto;
-    margin-bottom: -100px;
-    margin-top: 48px;
+    margin-bottom: -140px;
+    margin-top: 80px;
   }
   .content{
     padding-top: 0;
@@ -162,16 +162,18 @@ body{
 
 .logo{
   width: 500px;
-  height: 500px;
+  height: 300px;
   max-width: 90vw;
   max-height: 90vw;
   mask-image: url(/logo.gif);
   background-color: $blue;
-  mask-size: contain;
+  mask-size: 100%;
+  mask-position: center;
   top: 52%;
-  position: absolute;
+  position: fixed;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
 a{
@@ -180,7 +182,7 @@ a{
 }
 
 .navigation{
-  position: absolute;
+  position: fixed;
   top: 10vh;
   display: flex;
   justify-content: center;
@@ -198,7 +200,7 @@ a{
 .content{
   // min-height: 100vh;
   // padding: 0 8vw;
-  padding-top: 100px;
+  padding-top: 160px;
   padding-bottom: 140px;
   p{
     font-family: merriweather;

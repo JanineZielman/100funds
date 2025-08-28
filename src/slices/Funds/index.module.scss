@@ -1,0 +1,114 @@
+$lblue: #EAEBFF;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); // 10 x 10 grid
+  margin: 0 auto;
+  max-width: calc(100vw - 80px);
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: repeat(5, 1fr);
+    max-width: calc(100vw - 40px);
+    top: 20px;
+    left: 20px;
+  }
+}
+
+.square {
+  aspect-ratio: 1 / 1; // makes perfect squares
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: content-box;
+  border: 1px solid rgba(0,0,0,0.1);
+  position: relative;
+   &:hover{
+    img{
+      opacity: 0;
+    }
+    .fundContent{
+      // z-index: 2;
+      // position: absolute;
+      background-color: $lblue;
+      // transform: scale(1.1);
+      transform-origin: center;
+      h3{
+        opacity: 1;
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.fundContent {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: all 0.4s ease;
+
+  h3 {
+    font-size: 0.8rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1;
+    opacity: 0;
+    transition: all 0.4s ease;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.4s ease;
+  }
+}
+
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes reveal2 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.revealed {
+  opacity: 0;
+  animation: reveal 0.6s ease forwards;
+}
+
+.square {
+  opacity: 0;
+}
+
+.empty {
+  background: $lblue;
+  animation: reveal2 0.6s ease forwards;
+  animation-delay: 2s;
+}
+
+
+@for $i from 1 through 100 {
+  .square:nth-child(#{$i}).revealed {
+    animation-delay: #{(0.05 * $i) + 3}s;
+  }
+}
+

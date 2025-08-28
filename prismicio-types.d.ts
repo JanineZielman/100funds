@@ -38,7 +38,11 @@ export type NavigationDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = SliderSlice | ImageSlice | RichTextSlice;
+type PageDocumentDataSlicesSlice =
+  | FondsSlice
+  | SliderSlice
+  | ImageSlice
+  | RichTextSlice;
 
 /**
  * Content for Page documents
@@ -111,6 +115,73 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 export type AllDocumentTypes = NavigationDocument | PageDocument;
+
+/**
+ * Item in *Funds → Default → Primary → Funds*
+ */
+export interface FondsSliceDefaultPrimaryFundsItem {
+  /**
+   * Title field in *Funds → Default → Primary → Funds*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fonds.default.primary.funds[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Image field in *Funds → Default → Primary → Funds*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fonds.default.primary.funds[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *Funds → Default → Primary*
+ */
+export interface FondsSliceDefaultPrimary {
+  /**
+   * Funds field in *Funds → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fonds.default.primary.funds[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  funds: prismic.GroupField<Simplify<FondsSliceDefaultPrimaryFundsItem>>;
+}
+
+/**
+ * Default variation for Funds Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FondsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FondsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Funds*
+ */
+type FondsSliceVariation = FondsSliceDefault;
+
+/**
+ * Funds Shared Slice
+ *
+ * - **API ID**: `fonds`
+ * - **Description**: Fonds
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FondsSlice = prismic.SharedSlice<"fonds", FondsSliceVariation>;
 
 /**
  * Primary content in *Image → Default → Primary*
@@ -334,6 +405,11 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      FondsSlice,
+      FondsSliceDefaultPrimaryFundsItem,
+      FondsSliceDefaultPrimary,
+      FondsSliceVariation,
+      FondsSliceDefault,
       ImageSlice,
       ImageSliceDefaultPrimary,
       ImageSliceVariation,
