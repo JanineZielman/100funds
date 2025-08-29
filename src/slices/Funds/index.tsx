@@ -3,7 +3,7 @@
 import { FC, useEffect, useState } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import { PrismicNextImage } from "@prismicio/next";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import styles from "./index.module.scss";
 
 /**
@@ -57,8 +57,10 @@ const Fonds: FC<FondsProps> = ({ slice }) => {
         >
           {fund ? (
             <div className={styles.fundContent}>
-              <h3>{fund.title}</h3>
-              <PrismicNextImage field={fund.image} />
+              <PrismicNextLink field={fund.link}>
+                <h3>{fund.title}</h3>
+                <PrismicNextImage field={fund.image} />
+              </PrismicNextLink>
             </div>
           ) : null}
         </div>
